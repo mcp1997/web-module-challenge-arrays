@@ -103,9 +103,12 @@ Use the removeLastFlavor function below to do the following:
     For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
-   /*your code here*/
+function removeLastFlavor(arr){
+   arr.pop();
+   return arr;
 }
+
+removeLastFlavor(originalFlavors);
 
 
 
@@ -120,10 +123,11 @@ Use the getFlavorByIndex function below to do the following:
     For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/){
-    /*your code here*/
+function getFlavorByIndex(arr, iFlavor){
+    return arr[iFlavor];
 }
 
+getFlavorByIndex(originalFlavors, 2);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, 
@@ -140,9 +144,24 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-    /*your code here*/
+function removeFlavorByName(arr, unwantedFlavor){
+    for(i in arr){
+        if(arr[i].includes(unwantedFlavor)){
+          let flavorIndex = arr.indexOf(unwantedFlavor);
+          arr.splice(flavorIndex, 1);
+          return arr;
+        }
+    }
 }
+
+// - receiving an Array
+// - receiving the flavor that isnt wanted as a string
+// - grab the index of the string
+// - assign the index a variable
+// - splice using the variable
+// - return the new Array
+
+removeFlavorByName(originalFlavors, 'Rocky Road');
 
 
 
@@ -166,9 +185,17 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
-    /*your code here*/
+function filterByWord(arr, attribute){
+    let newArr = [];
+    for(i in arr){
+        if(arr[i].includes(attribute)){
+          newArr.push(arr[i]);
+        }
+    }
+  return newArr;
 }
+    
+filterByWord(originalFlavors, 'Chocolate');
 
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
